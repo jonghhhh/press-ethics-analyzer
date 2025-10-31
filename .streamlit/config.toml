@@ -1,6 +1,7 @@
 [server]
 headless = true
-port = 7860
+# Port will be set via command line argument (for Render.com/Railway)
+# or environment variable PORT
 
 [browser]
 gatherUsageStats = false
