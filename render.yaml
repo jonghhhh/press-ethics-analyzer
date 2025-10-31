@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: press-ethics-analyzer
+    env: python
+    plan: free
+    buildCommand: |
+      pip install -r requirements.txt
+      # Download ChromaDB files from Hugging Face
+      git clone https://huggingface.co/spaces/jonghhhh/press_ethics temp_hf
+      mkdir -p chroma
+      cp temp_hf/chroma/chroma.sqlite3 ./chroma/
+      cp -r temp_hf/chroma/4f0d0b85-04bb-4afc-9e18-51530c937a3b ./chroma/
+      rm -rf temp_hf
+    startCommand: streamlit run app.py --server.port $PORT --server.address 0.0.0.0 --server.headless true
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
