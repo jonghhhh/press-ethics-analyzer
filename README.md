@@ -139,12 +139,36 @@ press-ethics-analyzer/
 - **스크래핑**: BeautifulSoup4, Requests
 - **이미지 처리**: Pillow
 
+## 🚀 클라우드 배포
+
+### Render.com 배포
+
+1. [Render.com](https://render.com/) 가입
+2. "New +" → "Web Service" 선택
+3. GitHub 저장소 연결: `jonghhhh/press-ethics-analyzer`
+4. 자동 감지된 설정 확인 (render.yaml 사용)
+5. "Create Web Service" 클릭
+
+**참고**: 초기 빌드 시 ChromaDB 파일(225MB)을 Hugging Face에서 자동 다운로드하므로 5-10분 소요됩니다.
+
+### Hugging Face Spaces (권장)
+
+이미 배포된 버전을 바로 사용할 수 있습니다:
+- 🌐 [https://huggingface.co/spaces/jonghhhh/press_ethics](https://huggingface.co/spaces/jonghhhh/press_ethics)
+
+### 기타 플랫폼
+
+- **Streamlit Cloud**: GitHub 저장소 연결 후 `app.py` 지정
+- **Railway**: GitHub 연결 시 자동 감지
+- **Fly.io**: Dockerfile 생성 필요
+
 ## ⚠️ 주의사항
 
 - API 키는 절대 공개 저장소에 커밋하지 마세요
 - ChromaDB 데이터는 사전에 준비되어야 합니다
 - 분석에는 수 분이 소요될 수 있습니다
 - GPU를 사용하려면 PyTorch GPU 버전을 별도 설치하세요
+- 클라우드 배포 시 초기 빌드는 모델 다운로드로 인해 시간이 걸립니다
 
 ## 📝 라이선스
 
